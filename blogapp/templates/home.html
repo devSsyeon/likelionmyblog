@@ -1,0 +1,15 @@
+<h1>여기는 home 페이지 입니다</h1>
+
+{% for x in posts.all %}
+<div class="container">
+    <a href="{% url 'detail' x.id%}">
+    <h1>{{x.title}}</h1>
+    </a>
+    <p>{{ x.pub_date}}</p>
+    <p>{{ x.body }}</p>
+</div>
+<a href = "{% url 'delete' x.id%}">삭제하기 </a>
+<br>
+<a href ="{% url 'update' x.id%}">수정하기 </a>
+{%endfor%}
+<a href="{% url 'new' %}">새글 쓰러가기</a>
